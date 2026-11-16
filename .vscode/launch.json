@@ -1,0 +1,52 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "cortex-debug",
+      
+      "name": "Debug ST Nucleo-G4 (ST-Link)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "executable": "./build/hello-stm32g474.elf",
+      
+      /* Debug Probe */
+      "servertype": "openocd",
+      "configFiles": [
+        "${workspaceFolder}/nucleo-g474re.cfg"
+      ],
+      "runToEntryPoint": "main",
+      
+      /* Peripherals viewer */
+      "svdPath": "Keil::STM32G4xx_DFP@2.2.0",
+      "deviceName": "STM32G474RETx",
+      "processorName": "cm4",
+
+      /* Memory viewer */
+      "liveWatch": {
+        "enabled": false,
+        "samplesPerSecond": 4
+      },
+
+      /* SWO */
+      /*"swoConfig": {
+        "enabled": true,
+        "source": "probe",
+        "cpuFrequency": 24000000,
+        "decoders": [
+          {
+            "type": "console",
+            "label": "ITM", 
+            "showOnStartup": true,
+            "port": 0,
+            "encoding": "ascii"
+          }
+        ]
+      },*/
+
+      /* Semihosting */
+      /*"postLaunchCommands": [
+        "monitor arm semihosting enable"
+      ]*/
+    }
+  ]
+}
